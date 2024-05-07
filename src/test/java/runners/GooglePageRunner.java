@@ -5,16 +5,18 @@ package runners;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
-@CucumberOptions(features = "src//test//resources//features//UserLogin.feature",
+@CucumberOptions(features = "src//test//resources//features//",
 				glue= {"stepDefs"},
 			//	dryRun= true,
 				monochrome=true,
-				plugin= {"pretty","html:target/reports/HtmlReport.html",
-						"json:target/reports/JsonReport.json",
-						"usage:target/reports/UsageReport",
-						"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-					//to generate extent report we need to add dependencies of ExtentReport and Cucumber7-adapter for extent report
-						"rerun:target/FailedScenario.txt"
+				plugin= {"pretty",
+		/*
+		 * "html:target/reports/HtmlReport.html", "json:target/reports/JsonReport.json",
+		 * "usage:target/reports/UsageReport",
+		 * "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", //to
+		 * generate extent report we need to add dependencies of ExtentReport and
+		 * Cucumber7-adapter for extent report "rerun:target/FailedScenario.txt"
+		 */
 			}
 		)
 

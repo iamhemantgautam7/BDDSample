@@ -1,6 +1,7 @@
 package stepDefs;
 
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -46,13 +47,27 @@ public class UserStepDef {
 	 * }
 	 */
 	
-	  //third exaple
+	  //third example
+		/*
+		 * @When("User enters credentials") public void
+		 * user_enters_credentials(DataTable dataTable) { List<List<String>> users=
+		 * dataTable.asLists(); driver.get("http://the-internet.herokuapp.com/login");
+		 * String strUser=users.get(0).get(0); String strPwd=users.get(0).get(1);
+		 * driver.findElement(By.id("username")).sendKeys(strUser);
+		 * driver.findElement(By.name("password")).sendKeys(strPwd);
+		 * driver.findElement(By.cssSelector("i.fa.fa-2x.fa-sign-in")).click();
+		 * 
+		 * }
+		 */
+	  
+	//Fourth example-using datatable as Maps
 	  @When("User enters credentials")
 	  public void user_enters_credentials(DataTable dataTable) {
-		  List<List<String>> users= dataTable.asLists();
+		  List<Map<String, String>>users=dataTable.asMaps();
 		  driver.get("http://the-internet.herokuapp.com/login");
-		  String strUser=users.get(0).get(0);
-		  String strPwd=users.get(0).get(1);
+		  
+		  String strUser=users.get(0).get("username");
+		  String strPwd=users.get(0).get("password");
 		  driver.findElement(By.id("username")).sendKeys(strUser);
 		  driver.findElement(By.name("password")).sendKeys(strPwd);
 		  driver.findElement(By.cssSelector("i.fa.fa-2x.fa-sign-in")).click();

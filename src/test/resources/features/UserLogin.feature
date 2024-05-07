@@ -23,9 +23,18 @@ WebDriver driver;
 #|testuser2|password2|
 
 #Third Example:-
+#Scenario: Valid Login
+#Given User is on Login Page
+#When  User enters credentials 
+#										|tomsmith|SuperSecretPassword!|
+#Then Should display Success Msg
+
+
+#Fourth Example:-
 Scenario: Valid Login
 Given User is on Login Page
 When  User enters credentials 
+										|username|password|
 										|tomsmith|SuperSecretPassword!|
 Then Should display Success Msg
 

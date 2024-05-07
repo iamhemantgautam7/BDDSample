@@ -41,7 +41,7 @@ public void should_display_java_tutorial_page() {
 @When("User search Selenium Tutorial")
 public void user_search_selenium_tutorial() {
 	WebElement srcBox =driver.findElement(By.className("gLFyf"));
-	srcBox.sendKeys("Selenium Tutoria");
+	srcBox.sendKeys("Selenium Tutorial");
 	srcBox.submit();
 }
 @Then("Should display Selenium Tutorial page")
