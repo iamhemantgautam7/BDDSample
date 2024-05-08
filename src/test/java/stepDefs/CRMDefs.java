@@ -1,10 +1,63 @@
 package stepDefs;
 
+import io.cucumber.java.AfterAll;
+import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
+import io.cucumber.java.BeforeStep;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
 public class CRMDefs {
-
+	
+	
+	@Before(value="@SmokeTest", order=1)
+	public void readFrompPropSmoke() {
+		
+		System.out.println("read from smoke prop file");
+	}
+	
+	@Before (value="@SmokeTest",order=2)
+	public void setupChrome() {
+		
+		System.out.println("initializ the chrome");
+	}
+	
+	@Before(value="@RegressionTest", order=1)
+	public void readFrompPropReg() {
+		
+		System.out.println("read from reg prop file");
+	}
+	
+	@Before (value="@RegressionTest",order=2)
+	public void setupEdge() {
+		
+		System.out.println("initializ the Edge");
+	}
+	
+	
+	@BeforeAll
+	public static void setup() {
+		
+		System.out.println("Before All the Scenarios is executed");
+		}
+		
+	/*
+	 * @Before public void setupScenario() {
+	 * 
+	 * System.out.println("Before each  Scenarios executed"); }
+	 */
+			
+	@AfterAll
+	public static void exitAll() {
+		System.out.println("AfterAll is executed");
+	}
+	
+	@BeforeStep
+	public static void eachStep() {
+		System.out.println("Before each step is xecuted");
+	}
+		
+	
 	@Given("User is logged in")
 	public void user_is_logged_in() {
 		System.out.println("User Logged in");
